@@ -23,7 +23,7 @@ def main():
 	st.markdown(html_templ,unsafe_allow_html=True)
 	st.write("A simple proposal for Covid-19 Diagnosis powered by Deep Learning and Streamlit")
 
-	st.sidebar.image("./images/covid19.jpeg",width=300)
+	st.sidebar.image("covid19.jpeg",width=300)
 
 	image_file = st.sidebar.file_uploader("Upload an X-Ray Image (jpg, png or jpeg)",type=['jpg','png','jpeg'])
 
@@ -76,7 +76,7 @@ def main():
 				X_Ray = img.reshape(1, 200, 200, 1)
 
 				#Pre-trained CNN Model loading
-				model = tf.keras.models.load_model("./models/Covid19_CNN_Classifier.h5")
+				model = tf.keras.models.load_model("Covid19_CNN_Classifier.h5")
 
 				#Diagnosis (Prediction== Binary Classification)
 				diagnosis_proba = model.predict(X_Ray)
